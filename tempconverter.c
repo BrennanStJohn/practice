@@ -29,15 +29,16 @@ float main(){
 	puts("");
 	puts("");
 	
-	if(celsius[i] > (0-51.1) || celsius[i] < 106.7){
+	
 	for(int z = 0; z <= sizeof celsius[y]; z++){
-		printf("%4s %.2f %18s %.2f", "", celsius[z], "", convertCtoF(celsius[z]));
+		if(celsius[z] < 106.7 && celsius[z] > (0-51.1)){
+			printf("%4s %.2f %18s %.2f", "", celsius[z], "", convertCtoF(celsius[z]));
+			puts("");
+		}
+		else {
+		printf("%4s %s %16s %s", "", "Invalid", "", "Entry");
 		puts("");
-	}
-	}
-	else {
-		printf("Invalid entry");
-		return 0;
+		}
 	}
 	
 	
@@ -48,9 +49,9 @@ float convertCtoF(float a){
 	
 	float x;
 	
-	x = ((a * (9/5)) + 32);
+	x = ((a * 1.8) + 32);
 	
-	return x;
+	return (float) x;
 
 }
 
